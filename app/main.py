@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mebel.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg'])
 db = SQLAlchemy(app)
-
+a=app
 
 class Mebel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
