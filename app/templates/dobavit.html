@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <link crossorigin="anonymous"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              rel="stylesheet">
+        <link rel="stylesheet"/>
+        <style>
+            body {
+                background-color: Beige;
+            }
+            #name {
+                width: 500px;
+            }
+            #count {
+                width: 150px;
+            }
+            #color {
+                width: 300px;
+            }
+            #height {
+                width: 100px;
+            }
+            #weidth {
+                width: 100px;
+            }
+            #dep {
+                width: 100px;
+            }
+            #postav{
+                width: 150px;
+            }
+            h1{
+                text-align: center;
+               }
+
+        </style>
+    </nav>
+</header>
+<h1>Новое изделие</h1>
+    <form method="POST">
+        <label>Наименование</label>
+        <input type="text" name="name" id="name" class="form-control"><br>
+
+         <div class="form-group">
+            <label>Выберете категорию товара</label>
+                 <div class="form-check">
+                         <input class="form-check-input" type="radio" name="category" id="armchair" value="Кресло" checked>
+                         <label class="form-check-label" for="armchair">Кресло</label>
+                 </div>
+
+                 <div class="form-check">
+                         <input class="form-check-input" type="radio" name="category" id="sofa" value="Диван">
+                         <label class="form-check-label" for="sofa">Диван</label>
+                 </div>
+
+                 <div class="form-check">
+                          <input class="form-check-input" type="radio" name="category" id="bed" value="Кровать">
+                          <label class="form-check-label" for="bed">Кровать</label>
+                 </div>
+         </div>
+
+         <br>
+         <label>Стоимость</label>
+         <input type="text" name="count" id="count" class="form-control"><br>
+
+         <label>Цвет</label>
+         <input type="text" name="color" id="color" class="form-control"><br>
+
+         <label>Параметры:</label><br>
+         <input type="text" name="height" id="height" class="form-control" value="Высота"><br>
+         <input type="text" name="weidth" id="weidth" class="form-control" value="Ширина"><br>
+         <input type="text" name="dep" id="dep" class="form-control" value="Глубина"><br>
+
+
+
+    <div class="form-group">
+          <label>Поставщик</label>
+           <select class="form-control" id="postav" name="postav">
+               <option>Россия</option>
+               <option>Турция</option>
+               <option>Испания</option>
+               <option>Германия</option>
+               <option>Китай</option>
+           </select><br>
+
+        <div class="form-group">
+            <label>Дополнительно</label>
+            <textarea class="form-control" id="dop" rows="3" name="dop"></textarea>
+         </div>
+
+        <label>URL изображения</label>
+         <input type="text" name="image" id="image" class="form-control"><br>
+
+    <input type="submit" class="btn btn-primary" value="Добавить">
+
+    </div>
+    </form>
+
+
+{% endblock %}
