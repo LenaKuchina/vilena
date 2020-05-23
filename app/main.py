@@ -4,7 +4,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mebel.db'
@@ -14,7 +13,7 @@ db = SQLAlchemy(app)
 
 
 class Mebel(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=True)
     category = db.Column(db.Text(20), nullable=True)
     count = db.Column(db.Integer, nullable=True)
@@ -27,7 +26,7 @@ class Mebel(db.Model):
     dop = db.Column(db.Text)
 
     def __repr__(self):
-        return '<Mebel %r>' %self.id
+        return '<Mebel %r>' % self.id
 
 
 class LoginForm(FlaskForm):
@@ -75,7 +74,6 @@ def database():
         return render_template('dobavit.html', title="Добавить запись")
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -94,10 +92,12 @@ def sofa():
     article = Mebel.query.all()
     return render_template('sofa.html', title='Диваны', article=article)
 
+
 @app.route('/armchair')
 def armchair():
     article = Mebel.query.all()
     return render_template('armchair.html', title='Кресла', article=article)
+
 
 @app.route('/bed')
 def bed():
@@ -117,7 +117,7 @@ def delete(id):
         return "При удалении произошла ошибка!"
 
 
-@app.route('/admin/<int:id>/update',  methods=['GET', 'POST'])
+@app.route('/admin/<int:id>/update', methods=['GET', 'POST'])
 def update(id):
     article = Mebel.query.get(id)
     if request.method == 'POST':
@@ -140,8 +140,6 @@ def update(id):
 
     else:
         return render_template("update.html", article=article, title="Редактирование")
-
-
 
 
 if __name__ == '__main__':
